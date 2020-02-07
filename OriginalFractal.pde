@@ -1,23 +1,32 @@
 public void setup()
 {
 	size(600,600,P3D);
-	shapeMode(CENTER);
+	background(0);
 }
 
 public void draw()
 {
-	myFractal(300, 300, 500);
-}
+	noFill();
+	stroke(255);
+	ortho();
+	translate(300,300);
+	rotateX(-PI/6);
+	rotateY(PI/6);
+	box(50);
 
+	//myFractal(300,300,300);
+}
+//use camera https://processing.org/tutorials/p3d/
 public void myFractal(int x, int y, int siz)
 {
-	fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+	//fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
 	//ellipse(x,y,siz,siz);
-	//if(siz > 2 && x < 600 && y < 600)
-	box() 
+	noFill();
+	translate(300,300);
+	rotateY(0.5);
+	box(siz);
+	if(siz > 0)
 	{
-		myFractal(x+2,y+2,siz-2);
-
-	}
-		
+		myFractal(x,y,siz/10);//myFractal(siz-10);
+	}		
 }
