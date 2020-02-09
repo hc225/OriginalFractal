@@ -1,30 +1,30 @@
+float rotY;
 public void setup()
 {
-	size(600,600,P3D);
-	background(0);
+	size(800,800,P3D);
+	rotY = PI/6;
 }
 public void draw()
 {
-	strokeWeight(0.25);
-	translate(300,300);
-	rotateX(-PI);
-	myFractal(0,600);
-	myFractal(1,600);
-	myFractal(0,600);
+	background(0);
+	noFill();
+	strokeWeight(1.5);
+	translate(400,400);
+	rotateY(rotY);
+	rotY+= PI/180;	
+	myFractal(6,4000);
+
 }
 
-public void myFractal(int rotX, int siz)
+public void myFractal(int rot, int siz)
 {
-	stroke(random(256),random(256),random(256));
-	noFill();
-	ortho();
-	if (rotX == 1) rotateX(PI/6);
-	else rotateY(PI/6);
+	rotateX(PI/rot);
+	rotateY(PI/rot);
+	rotateZ(PI/rot);
 	box(siz);
-	if(siz > 10)
+	if(siz > 0)
 	{	
-
-		myFractal(rotX,siz-50);
-		myFractal(rotX,siz-50);
+		stroke(random(256),random(256),random(256));
+		myFractal(rot,siz/2);
 	}		
 }
