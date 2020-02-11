@@ -12,15 +12,15 @@ public void draw()
 	translate(400,400);
 	rotateY(rotY);
 	rotY+= PI/180;	
-	myFractal(6,4000);
+	myFractal(PI/6,4000);
 
 }
 
-public void myFractal(int rot, int siz)
+public void myFractal(float rot, int siz)
 {
-	rotateX(PI/rot);
-	rotateY(PI/rot);
-	rotateZ(PI/rot);
+	rotateX(rot);
+	rotateY(rot);
+	rotateZ(rot);
 	box(siz);
 	if(siz > 0)
 	{	
